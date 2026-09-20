@@ -1,0 +1,16 @@
+# STM32CubeIDE build files
+**/Debug/*
+**/Release/*
+
+# Keep firmware files required by Proteus
+!**/Debug/*.hex
+!**/Release/*.hex
+
+# Proteus temporary and user-specific files
+*.workspace
+*.pdsbak
+*.log
+
+# Operating system files
+Thumbs.db
+.DS_Store
