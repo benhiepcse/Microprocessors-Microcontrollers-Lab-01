@@ -58,23 +58,33 @@ void clearAllClock();
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
-void setNumberOnClock(int num) {
-	static const uint16_t ledPin[12] = {
-			LED_1_Pin,
-			LED_2_Pin,
-			LED_3_Pin,
-			LED_4_Pin,
-			LED_5_Pin,
-			LED_6_Pin,
-			LED_7_Pin,
-			LED_8_Pin,
-			LED_9_Pin,
-			LED_10_Pin,
-			LED_11_Pin,
-			LED_12_Pin,
-	};
+void setNumberOnClock(int num)
+{
+    static const uint16_t ledPin[12] = {
+        LED_1_Pin,
+        LED_2_Pin,
+        LED_3_Pin,
+        LED_4_Pin,
+        LED_5_Pin,
+        LED_6_Pin,
+        LED_7_Pin,
+        LED_8_Pin,
+        LED_9_Pin,
+        LED_10_Pin,
+        LED_11_Pin,
+        LED_12_Pin
+    };
 
-	HAL_GPIO_WritePin(GPIOA, ledPin[num], GPIO_PIN_RESET);
+    if (num < 0 || num >= 12)
+    {
+        return;
+    }
+
+    HAL_GPIO_WritePin(
+        GPIOA,
+        ledPin[num],
+        GPIO_PIN_RESET
+    );
 }
 
 void clearAllClock() {

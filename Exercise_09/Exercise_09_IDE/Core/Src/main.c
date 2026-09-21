@@ -71,12 +71,32 @@ void clearNumberOnClock(int num);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-void setNumberOnClock(int num) {
-	HAL_GPIO_WritePin(GPIOA, ledPin[num], GPIO_PIN_RESET);
+void setNumberOnClock(int num)
+{
+    if (num < 0 || num >= 12)
+    {
+        return;
+    }
+
+    HAL_GPIO_WritePin(
+        GPIOA,
+        ledPin[num],
+        GPIO_PIN_RESET
+    );
 }
 
-void clearNumberOnClock(int num) {
-	HAL_GPIO_WritePin(GPIOA, ledPin[num], GPIO_PIN_SET);
+void clearNumberOnClock(int num)
+{
+    if (num < 0 || num >= 12)
+    {
+        return;
+    }
+
+    HAL_GPIO_WritePin(
+        GPIOA,
+        ledPin[num],
+        GPIO_PIN_SET
+    );
 }
 
 /* USER CODE END 0 */
